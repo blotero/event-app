@@ -1,0 +1,13 @@
+{
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.111",
+    "@types/aws-sdk": "^2.7.0",
+    "aws-lambda": "^1.0.7",
+    "aws-sdk": "^2.1324.0",
+    "esbuild": "^0.16.17",
+    "serverless-esbuild": "^1.39.0",
+    "serverless-offline": "^12.0.4",
+    "serverless-plugin-typescript": "^2.1.4",
+    "typescript": "^4.9.5"
+  }
+}
