@@ -1,29 +1,29 @@
 {
     "compilerOptions": {
-        "lib": ["es2017"],
-        "removeComments": true,
+        "module": "commonjs",
+        "sourceMap": true,
         "moduleResolution": "node",
+        "removeComments": true,
+        "noImplicitAny": true,
+        "strictNullChecks": true,
+        "strictFunctionTypes": true,
+        "noImplicitThis": true,
         "noUnusedLocals": true,
         "noUnusedParameters": true,
-        "sourceMap": true,
-        "target": "es2017",
-        "outDir": "./dist",
-        "baseUrl": ".",
+        "noImplicitReturns": true,
+        "noFallthroughCasesInSwitch": true,
         "allowSyntheticDefaultImports": true,
+        "esModuleInterop": true,
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
         "resolveJsonModule": true,
-        "types": ["node"]
+        "preserveConstEnums": true,
+        "allowJs": true,
+        "target": "ES2022",
+        "outDir": ".esbuild",
+        "lib": ["ES2022"],
+        "rootDir": "./"
     },
-    "include": ["src"],
-    "exclude": [
-        "node_modules",
-        "node_modules/**/*",
-        ".serverless/**/*",
-        ".webpack/**/*",
-        "_warmup/**/*",
-        ".vscode/**/*",
-        ".idea/**/*",
-        "dist/**/*",
-        "tests/**/*",
-        "**/**/*.test.ts"
-    ]
+    "include": ["src/**/*", "index.ts"],
+    "exclude": ["node_modules"]
 }

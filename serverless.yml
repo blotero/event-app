@@ -2,17 +2,17 @@ service: serverless-http-api
 frameworkVersion: '3'
 
 plugins:
-    - serverless-plugin-typescript
     - serverless-offline
+    - serverless-esbuild
 
 provider:
     name: aws
     runtime: nodejs18.x
 
 functions:
-    api:
-        handler: src/index.handler
+    productService:
+        handler: src/services/product/ProductService.handler
         events:
             - httpApi:
-                  path: /
+                  path: /product
                   method: get
