@@ -13,12 +13,21 @@ export interface ServiceDescriptor {
     method: ApiHttpMethod;
 }
 
-export class ServiceDescriptorCallback {
+export class ServiceCallbackMap {
     protected data: Map<ServiceDescriptor, (event: APIGatewayProxyEvent) => {}>;
     constructor() {
         this.data = new Map<
             ServiceDescriptor,
             (event: APIGatewayProxyEvent) => {}
         >();
+    }
+    async processEvent(
+        serviceDescriptor: ServiceDescriptor,
+        event: APIGatewayProxyEvent
+    ) {
+        const processor = this.data.get(serviceDescriptor) as (
+            event: APIGatewayProxyEvent
+        ) => {};
+        return processor(event);
     }
 }
