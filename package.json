@@ -14,6 +14,8 @@
         "@middy/core": "^4.2.6",
         "@middy/http-error-handler": "^4.2.6",
         "@middy/http-event-normalizer": "^4.2.6",
-        "@middy/http-json-body-parser": "^4.2.6"
+        "@middy/http-json-body-parser": "^4.2.6",
+        "@types/http-errors": "^2.0.1",
+        "http-errors": "^2.0.0"
     }
 }

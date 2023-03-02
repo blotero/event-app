@@ -1,27 +1,20 @@
 import { APIGatewayProxyEvent } from 'aws-lambda';
-import { ApiHttpMethod } from '../../business/ServiceCallbackMap';
-import Middleware from '../../middleware/Middleware';
 import { ProductServiceCallbackMap } from './ProductServiceCallbackMap';
 
-interface ProductServiceResponseBody {}
+import GenericMiddleware from '../../middleware/GenericMiddleware';
+import { EventParser } from '../../eventparse/EventParser';
 
-const productService = async (
-    event: APIGatewayProxyEvent
-): Promise<ProductServiceResponseBody> => {
-    console.log('Product service!');
+const productService = async (event: APIGatewayProxyEvent): Promise<any> => {
     const callbackMap = new ProductServiceCallbackMap();
+    const serviceDescriptor = EventParser.toServiceDescriptor(event);
     const responseBody = await callbackMap.processEvent(
-        {
-            method: ApiHttpMethod.get,
-            path: '/product',
-        },
+        serviceDescriptor,
         event
     );
-
     return {
         statusCode: 200,
         body: JSON.stringify(responseBody),
     };
 };
 
-export const handler = Middleware(productService);
+export const handler = GenericMiddleware(productService);

@@ -1,16 +1,13 @@
-import {
-    ApiHttpMethod,
-    ServiceCallbackMap,
-} from '../../business/ServiceCallbackMap';
+import { ServiceCallbackMap } from '../../business/ServiceCallbackMap';
 import { GetProduct } from './GetProduct';
 
 export class ProductServiceCallbackMap extends ServiceCallbackMap {
     constructor() {
         super();
-        this.data.set(
+        this.methodsMap.set(
             {
-                method: ApiHttpMethod.get,
                 path: '/product',
+                httpMethod: 'get',
             },
             GetProduct
         );
