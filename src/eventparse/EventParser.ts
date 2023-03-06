@@ -5,10 +5,13 @@ export class EventParser {
     public static toServiceDescriptor(
         event: APIGatewayProxyEvent
     ): ServiceDescriptor {
-        const { httpMethod, path } = event;
+        const { routeKey } = event as any;
+
+        const splitted: string[] = routeKey.split(' ');
+
         return {
-            path,
-            httpMethod,
+            path: splitted[1],
+            httpMethod: splitted[0].toLowerCase(),
         };
     }
 }

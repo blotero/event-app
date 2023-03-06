@@ -14,5 +14,26 @@ functions:
         handler: src/services/product/ProductService.handler
         events:
             - httpApi:
-                  path: /product
+                  path: /product/{productId}
                   method: get
+                  response:
+                      headers:
+                          Content-Type: application/json
+            - httpApi:
+                  path: /product/{productId}
+                  method: delete
+                  response:
+                      headers:
+                          Content-Type: application/json
+            - httpApi:
+                  path: /product/{productId}
+                  method: put
+                  response:
+                      headers:
+                          Content-Type: application/json
+            - httpApi:
+                  path: /product
+                  method: post
+                  response:
+                      headers:
+                          Content-Type: application/json
